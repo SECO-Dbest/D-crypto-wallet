@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulated Crypto Wallet</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Auth View -->
+    <div id="auth-view" class="card">
+      <h2 id="auth-title">Login to Your Wallet</h2>
+      <form id="auth-form">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" required placeholder="Enter username">
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="Enter password">
+        </div>
+        <button type="submit" id="auth-btn">Log In</button>
+      </form>
+      <p class="toggle-text">
+        <span id="toggle-prompt">Don't have an account?</span>
+        <a href="#" id="toggle-auth">Register here</a>
+      </p>
+      <div id="auth-message" class="message"></div>
+    </div>
+
+    <!-- Dashboard View -->
+    <div id="dashboard-view" class="card hidden">
+      <div class="header">
+        <div>
+          <h2>Welcome, <span id="user-display"></span>!</h2>
+          <p id="net-worth" style="color: #34d399; font-weight: bold; font-size: 1.1rem; margin-top: -8px;"></p>
+        </div>
+        <button id="logout-btn" class="btn-danger">Log Out</button>
+      </div>
+
+      <!-- Balance Grid -->
+      <div class="balance-grid">
+        <div class="balance-card usd">
+          <h3>USD Balance</h3>
+          <p id="usd-balance">$0.00</p>
+        </div>
+        <div class="balance-card asset">
+          <h3>Bitcoin (BTC)</h3>
+          <p id="btc-balance">0.00000000</p>
+        </div>
+        <div class="balance-card asset">
+          <h3>Ethereum (ETH)</h3>
+          <p id="eth-balance">0.00000000</p>
+        </div>
+        <div class="balance-card asset">
+          <h3>Tether (USDT)</h3>
+          <p id="usdt-balance">0.00</p>
+        </div>
+      </div>
+
+      <!-- Portfolio Allocation Chart -->
+      <div class="trade-section" style="margin-bottom: 20px;">
+        <h3>Portfolio Value Allocation</h3>
+        <div style="max-width: 320px; margin: 0 auto;">
+          <canvas id="portfolioChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Buy Section -->
+      <div class="trade-section">
+        <h3>Buy Simulated Crypto</h3>
+        <form id="buy-form">
+          <div class="form-row">
+            <select id="buy-asset">
+              <option value="BTC">Bitcoin (BTC) - Loading...</option>
+              <option value="ETH">Ethereum (ETH) - Loading...</option>
+              <option value="USDT">Tether (USDT) - Loading...</option>
+            </select>
+            <input type="number" id="buy-amount" step="any" min="0.0001" placeholder="Amount to buy" required>
+            <button type="submit" class="btn-success">Execute Buy</button>
+          </div>
+        </form>
+        <div id="trade-message" class="message"></div>
+      </div>
+
+      <!-- Sell Section -->
+      <div class="trade-section" style="margin-top: 20px;">
+        <h3>Sell Crypto for USD</h3>
+        <form id="sell-form">
+          <div class="form-row">
+            <select id="sell-asset">
+              <option value="BTC">Bitcoin (BTC)</option>
+              <option value="ETH">Ethereum (ETH)</option>
+              <option value="USDT">Tether (USDT)</option>
+            </select>
+            <input type="number" id="sell-amount" step="any" min="0.0001" placeholder="Amount to sell" required>
+            <button type="submit" class="btn-danger" style="width: auto;">Execute Sell</button>
+          </div>
+        </form>
+        <div id="sell-message" class="message"></div>
+      </div>
+
+      <!-- Transfer Section -->
+      <div class="trade-section" style="margin-top: 20px;">
+        <h3>Send / Transfer Funds</h3>
+        <form id="transfer-form">
+          <div class="form-row">
+            <input type="text" id="transfer-recipient" placeholder="Recipient username" required>
+            <select id="transfer-asset">
+              <option value="USD">USD ($)</option>
+              <option value="BTC">Bitcoin (BTC)</option>
+              <option value="ETH">Ethereum (ETH)</option>
+              <option value="USDT">Tether (USDT)</option>
+            </select>
+            <input type="number" id="transfer-amount" step="any" min="0.0001" placeholder="Amount" required>
+            <button type="submit" class="btn-success" style="background-color: #8b5cf6;">Send</button>
+          </div>
+        </form>
+        <div id="transfer-message" class="message"></div>
+      </div>
+
+      <!-- Activity History -->
+      <div class="transactions-section" style="margin-top: 20px;">
+        <h3>Recent Activity</h3>
+        <ul id="transactions-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

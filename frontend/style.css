@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0f172a;
+  color: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+}
+
+.card {
+  background-color: #1e293b;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+  display: none !important;
+}
+
+h2, h3 {
+  margin-bottom: 15px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background-color: #0f172a;
+  color: #fff;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-danger {
+  background-color: #ef4444;
+  width: auto;
+  padding: 8px 16px;
+}
+.btn-danger:hover { background-color: #dc2626; }
+
+.btn-success {
+  background-color: #10b981;
+  width: auto;
+}
+.btn-success:hover { background-color: #059669; }
+
+.toggle-text {
+  margin-top: 15px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.toggle-text a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.balance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.balance-card {
+  background-color: #0f172a;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #38bdf8;
+}
+
+.balance-card.usd {
+  border-left-color: #10b981;
+}
+
+.balance-card p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.balance-card.usd p {
+  color: #10b981;
+}
+
+.trade-section {
+  background-color: #0f172a;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-row select, .form-row input {
+  flex: 1;
+  min-width: 140px;
+}
+
+.transactions-section ul {
+  list-style: none;
+}
+
+.transactions-section li {
+  background: #0f172a;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.message {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.message.error { color: #f87171; }
+.message.success { color: #34d399; }
