@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://d-crypto-wallet.onrender.com/api/health';
 
 // Live price cache updated from CoinGecko
 let livePrices = {
